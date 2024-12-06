@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Model</title>
+  <script>
+    function redirectToAR() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // Check if the device is iOS
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://omriyak.github.io/usdz/model.usdz";
+      }
+      // Check if the device is Android
+      else if (/android/i.test(userAgent)) {
+        window.location.href = "intent://arvr.google.com/scene-viewer/1.0?file=https://omriyak.github.io/usdz/model.glb#Intent;scheme=https;package=com.google.android.googlequicksearchbox;end;";
+      } 
+      // Default to a fallback page
+      else {
+        alert("AR viewer not supported on your device.");
+      }
+    }
+  </script>
+</head>
+<body onload="redirectToAR()">
+  <p>Redirecting to AR experience...</p>
+</body>
+</html>
