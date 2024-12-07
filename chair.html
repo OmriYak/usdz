@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Model</title>
+  <script>
+    function redirectToAR() {
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+      
+      // Check if the device is iOS
+      if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://www.dropbox.com/scl/fi/nrvb1luodkeyepqm57h3o/.usdz?rlkey=jh0b43z3orndw1bf61tuu29je&st=f1o8uaug&raw=1";
+      }
+      // Check if the device is Android
+      else if (/android/i.test(userAgent)) {
+        window.location.href = "intent://arvr.google.com/scene-viewer/1.0?file=LINK-TO-GLB-FILE#Intent;scheme=https;package=com.google.android.googlequicksearchbox;end;";
+      } 
+      // Default to a fallback page
+      else {
+        alert("AR viewer not supported on your device.");
+      }
+    }
+  </script>
+</head>
+<body onload="redirectToAR()">
+  <p>Redirecting to AR experience...</p>
+</body>
+</html>
